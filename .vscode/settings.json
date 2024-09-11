@@ -1,0 +1,7 @@
+{
+    "iis.configDir": "",
+    "files.associations": {
+        "opus_defines.h": "c",
+        "opus_types.h": "c"
+    }
+}
