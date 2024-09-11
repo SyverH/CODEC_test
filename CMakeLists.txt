@@ -16,10 +16,7 @@ target_include_directories(app PRIVATE
     inc/opus/silk/arm
     inc/opus/silk/fixed
     inc/opus/silk/fixed/arm
-    inc/opus/silk/fixed/mips
     inc/opus/silk/float
-    inc/opus/silk/float/arm
-    inc/opus/silk/mips
     ${ZEPHYR_NRF_MODULE_DIR}/boards/arm/nrf5340_audio_dk_nrf5340
     )
 
@@ -34,10 +31,7 @@ FILE(GLOB SRC_FILES
     "inc/opus/silk/arm/*.c"
     "inc/opus/silk/fixed/*.c"
     "inc/opus/silk/fixed/arm/*.c"
-    "inc/opus/silk/fixed/mips/*.c"
     "inc/opus/silk/float/*.c"
-    "inc/opus/silk/float/arm/*.c"
-    "inc/opus/silk/mips/*.c"
     )
 
 target_sources(app PRIVATE ${SRC_FILES})
@@ -60,6 +54,8 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
 -DOPUS_BUILD \
 -DHAVE_CONFIG_H \
 -g \
--mfpu=neon \
+-mfpu=fpv5-sp-d16 \
 -mfloat-abi=hard \
+-mcpu=cortex-m33 \
+-mthumb \
 ")
