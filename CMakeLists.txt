@@ -20,6 +20,7 @@ target_include_directories(app PRIVATE
     inc/opus/silk/float
     inc/opus/silk/float/arm
     inc/opus/silk/mips
+    ${ZEPHYR_NRF_MODULE_DIR}/boards/arm/nrf5340_audio_dk_nrf5340
     )
 
 FILE(GLOB SRC_FILES
@@ -41,11 +42,11 @@ FILE(GLOB SRC_FILES
 
 target_sources(app PRIVATE ${SRC_FILES})
 
+#-DFIXED_POINT \
 # For OPUS
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
 -DARM_MATH_CM4 \
 -DDISABLE_FLOAT_API \
--DFIXED_POINT \
 -DUSE_ALLOCA \
 -DHAVE_LRINT \
 -DHAVE_LRINTF \
@@ -59,4 +60,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
 -DOPUS_BUILD \
 -DHAVE_CONFIG_H \
 -g \
+-mfpu=neon \
+-mfloat-abi=hard \
 ")
