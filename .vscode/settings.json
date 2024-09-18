@@ -2,6 +2,11 @@
     "iis.configDir": "",
     "files.associations": {
         "opus_defines.h": "c",
-        "opus_types.h": "c"
+        "opus_types.h": "c",
+        "config.h": "c",
+        "audio_codec_opus_api.h": "c",
+        "log.h": "c",
+        "debug.h": "c",
+        "nrf.h": "c"
     }
 }
